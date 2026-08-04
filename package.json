@@ -1,0 +1,25 @@
+{
+  "name": "ui-restore",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Restore UI into your existing Vue project. Not generate another demo.",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "ui-restore": "node packages/cli/dist/index.js"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3",
+    "tsup": "^8.5.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp", "@parcel/watcher"]
+  }
+}

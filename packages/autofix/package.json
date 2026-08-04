@@ -1,0 +1,31 @@
+{
+  "name": "@ui-restore/autofix",
+  "version": "0.1.0",
+  "description": "Screenshot diff autofix loop for ui-restore",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx/esm src/loop.test.ts"
+  },
+  "dependencies": {
+    "@ui-restore/parser": "workspace:*",
+    "@ui-restore/shared": "workspace:*",
+    "playwright": "^1.53.1",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

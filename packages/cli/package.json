@@ -1,0 +1,38 @@
+{
+  "name": "@ui-restore/cli",
+  "version": "0.1.0",
+  "description": "CLI for ui-restore — restore UI into your existing Vue project",
+  "type": "module",
+  "bin": {
+    "ui-restore": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node -e \"console.log('[@ui-restore/cli] no tests yet')\""
+  },
+  "dependencies": {
+    "@ui-restore/autofix": "workspace:*",
+    "@ui-restore/generator": "workspace:*",
+    "@ui-restore/parser": "workspace:*",
+    "@ui-restore/scanner": "workspace:*",
+    "@ui-restore/shared": "workspace:*",
+    "@ui-restore/vision": "workspace:*",
+    "commander": "^14.0.0",
+    "jiti": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
+  }
+}

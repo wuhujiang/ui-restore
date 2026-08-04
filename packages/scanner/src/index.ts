@@ -1,0 +1,5 @@
+export type { ComponentIndex, ComponentIndexEntry } from './types.js'
+export { DEFAULT_COMPONENT_ALIASES } from './types.js'
+export { scanComponents } from './scan.js'
+export { matchDocumentToIndex } from './match.js'
+export { scannerPackage } from './scan.js'

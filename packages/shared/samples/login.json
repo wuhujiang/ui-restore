@@ -1,0 +1,59 @@
+{
+  "version": "0.1",
+  "page": {
+    "id": "login",
+    "name": "Login",
+    "width": 375,
+    "height": 812,
+    "background": "#FFFFFF",
+    "children": [
+      {
+        "id": "n_logo",
+        "type": "Image",
+        "box": { "x": 140, "y": 96, "width": 96, "height": 96 },
+        "style": {},
+        "children": [],
+        "extractCandidate": false
+      },
+      {
+        "id": "n_title",
+        "type": "Text",
+        "text": "欢迎登录",
+        "box": { "x": 24, "y": 220, "width": 327, "height": 32 },
+        "style": {
+          "fontSize": 24,
+          "fontWeight": 600,
+          "color": "#111111"
+        },
+        "children": []
+      },
+      {
+        "id": "n_phone",
+        "type": "Input",
+        "box": { "x": 24, "y": 280, "width": 327, "height": 48 },
+        "props": { "placeholder": "手机号" },
+        "style": {
+          "borderRadius": 8,
+          "background": "#F5F5F5"
+        },
+        "children": []
+      },
+      {
+        "id": "n_submit",
+        "type": "Button",
+        "text": "登录",
+        "box": { "x": 24, "y": 420, "width": 327, "height": 48 },
+        "style": {
+          "background": "#1677FF",
+          "color": "#FFFFFF",
+          "borderRadius": 8,
+          "fontSize": 16,
+          "fontWeight": 600
+        },
+        "extractCandidate": true,
+        "children": []
+      }
+    ]
+  },
+  "components": []
+}

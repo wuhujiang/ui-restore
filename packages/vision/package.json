@@ -1,0 +1,29 @@
+{
+  "name": "@ui-restore/vision",
+  "version": "0.1.0",
+  "description": "Image → UI JSON DSL (provider adapters)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx/esm src/pipeline.test.ts"
+  },
+  "dependencies": {
+    "@ui-restore/shared": "workspace:*",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
