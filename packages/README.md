@@ -10,6 +10,7 @@
 | `@ui-restore/generator` | 可用 | 页面 + shared 组件 SFC |
 | `@ui-restore/autofix` | 可用 | Playwright Diff 闭环 |
 
-开源门面：根目录 `README` / `LICENSE` / `CONTRIBUTING`；CI 见 `.github/workflows/ci.yml`；Agent 见 `docs/AGENT.md`。
+开源门面：根目录 `README` / `LICENSE` / `CONTRIBUTING`；CI 见 `.github/workflows/ci.yml`；Agent 见 `docs/AGENT.md`。  
+npm 发布：`docs/PUBLISH.md`（各包已含 `license` / `publishConfig` / `repository`）。
 
 详见 `docs/ARCHITECTURE.md`。

@@ -48,6 +48,10 @@ pnpm --filter @ui-restore/autofix exec playwright install chromium
 - [ ] 若改 Prompt：更新 `docs/PROMPT.md` 与代码内 prompt 文本
 - [ ] 功能变化：同步 `docs/` 与 `STATUS.md`（若你在维护状态）
 
+## 发布到 npm
+
+维护者按 [`docs/PUBLISH.md`](./docs/PUBLISH.md) 执行。根包不发布；用户入口为 `@ui-restore/cli`。
+
 ## Commit 风格
 
 简洁说明「为什么」，例如：

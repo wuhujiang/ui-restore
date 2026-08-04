@@ -2,6 +2,22 @@
   "name": "@ui-restore/shared",
   "version": "0.1.0",
   "description": "Shared types, UI JSON DSL schema, and utilities for ui-restore",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuhujiang/ui-restore.git",
+    "directory": "packages/shared"
+  },
+  "homepage": "https://github.com/wuhujiang/ui-restore#readme",
+  "bugs": {
+    "url": "https://github.com/wuhujiang/ui-restore/issues"
+  },
   "type": "module",
   "exports": {
     ".": {

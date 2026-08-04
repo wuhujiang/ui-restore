@@ -6,6 +6,8 @@
 
 **Restore UI into your existing Vue project. Not generate another demo.**
 
+面向人类用户的安装说明、工具与模型分离、`--cwd` 用法见仓库根目录 [`README.md`](../README.md)「小白先看」。Agent 回答「怎么装 / 会不会绑死模型」时优先对齐该节，勿暗示已可 `npx`（npm 尚未发布；发布流程见 [`PUBLISH.md`](./PUBLISH.md)）。
+
 ## 用户说法 → 命令
 
 | 用户意图 | 建议执行 |

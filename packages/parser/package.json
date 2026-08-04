@@ -2,6 +2,22 @@
   "name": "@ui-restore/parser",
   "version": "0.1.0",
   "description": "DSL validate, normalize, and shared-component extraction",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuhujiang/ui-restore.git",
+    "directory": "packages/parser"
+  },
+  "homepage": "https://github.com/wuhujiang/ui-restore#readme",
+  "bugs": {
+    "url": "https://github.com/wuhujiang/ui-restore/issues"
+  },
   "type": "module",
   "exports": {
     ".": {

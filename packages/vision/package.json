@@ -2,6 +2,22 @@
   "name": "@ui-restore/vision",
   "version": "0.1.0",
   "description": "Image → UI JSON DSL (provider adapters)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuhujiang/ui-restore.git",
+    "directory": "packages/vision"
+  },
+  "homepage": "https://github.com/wuhujiang/ui-restore#readme",
+  "bugs": {
+    "url": "https://github.com/wuhujiang/ui-restore/issues"
+  },
   "type": "module",
   "exports": {
     ".": {
