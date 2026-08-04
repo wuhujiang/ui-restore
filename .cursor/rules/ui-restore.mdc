@@ -1,0 +1,19 @@
+---
+description: ui-restore CLI workflow — restore UI into existing Vue projects via JSON DSL
+globs:
+alwaysApply: false
+---
+
+# ui-restore
+
+When the user wants to restore UI from design images into a Vue project:
+
+1. Use the `ui-restore` CLI (`pnpm ui-restore` from repo root after `pnpm build`).
+2. Never skip the fixed UI JSON DSL; do not treat raw model Vue as the final architecture path.
+3. Follow `docs/AGENT.md` and `.cursor/skills/ui-restore/SKILL.md`.
+
+Typical mapping:
+
+- 「恢复登录页」→ `ui-restore restore --cwd <project> login.png`
+- 「多图抽公共组件」→ `ui-restore restore` with multiple images
+- 「自动修正」→ `ui-restore autofix <pageId> --reference <img>`

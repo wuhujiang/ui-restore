@@ -6,32 +6,31 @@
 
 ## 当前阶段
 
-**Phase 5 — AutoFix**（2026-08-04）
+**Phase 6 — Agent 与开源体验**（2026-08-04）
 
 ---
 
 ## 已完成
 
-### Phase 0–4
+### Phase 0–5
 
-- 文档、Monorepo、DSL、Vision→JSON、扫描、Generator、多图抽离。
+- 文档驱动设计；Monorepo；DSL；Vision→JSON；扫描 + Generator；多图抽离；AutoFix。
 
-### Phase 5
+### Phase 6
 
-- `@ui-restore/autofix`
-  - Playwright 截图（DSL→HTML 预览，或 `--url`）
-  - Sharp 像素 Diff + heatmap；score ∈ [0,1]
-  - 循环：截图 → Diff → 修订 DSL → 再生成 Vue
-  - Provider：`mock`（参考图区域采样修正 background）/ `openai`
-- CLI：`ui-restore autofix <pageId> --reference <img>`
-- 产物：`.ui-restore/autofix/<pageId>/round-N/`
+- README：一句话定位 + 30 分钟快速开始 + 与 Image-to-Code 对比表
+- `LICENSE`（MIT）、`CONTRIBUTING.md`
+- GitHub Actions CI：Node 22 + pnpm build/test + Playwright Chromium
+- Cursor：`docs/AGENT.md`、`.cursor/skills/ui-restore/SKILL.md`、`.cursor/rules/ui-restore.mdc`
+- `docs/DEBUG.md`：`.ui-restore/` 产物说明
 
 ---
 
 ## 后续工作
 
-1. Phase 6：开源体验（README/LICENSE/CI/Agent）
-2. 更强几何修正、实页 Vite Diff 默认化
+1. Phase 7+：样式体系 / 布局推断 / React / 更多 Provider（按「每天能用」排序）
+2. 发布 npm 包与更完整示例设计图
+3. AutoFix 几何修正与实页 Diff 体验加强
 
 ---
 
@@ -43,9 +42,8 @@
 
 ## 验证结果
 
-- `pnpm build` 通过
-- autofix 单测：相似度 **49.3% → 99.9%**
-- 需本机已安装 Chromium：`pnpm --filter @ui-restore/autofix exec playwright install chromium`
+- Phase 5 autofix 单测：49.3% → 99.9%
+- Phase 6：文档与 CI/Agent 文件已落地（CI 将在推送到 GitHub 后由 Actions 执行）
 
 ---
 
@@ -53,7 +51,7 @@
 
 | 决策 | 结论 |
 |------|------|
-| 修正主路径 | 改 DSL，再 Generator 覆盖 Vue |
-| Diff 算法 | mean absolute RGB |
-| 默认截图 | DSL HTML 预览；可用 `--url` 截实页 |
-| mock | 采样参考色修正 background，保证可离线验证 |
+| 开源协议 | MIT |
+| Agent 路径 | 自然语言 → CLI，禁止跳过 DSL |
+| 新人路径 | README 30 分钟；优先 `test-project` |
+| 调试 | 保留 `.ui-restore/` 中间产物 |

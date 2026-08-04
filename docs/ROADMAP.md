@@ -124,12 +124,14 @@ Phase 7+ 框架扩展（React 等）与生态
 
 ## 9. Phase 6 — Agent 与开源体验
 
-- README 一句话定位与快速开始。
-- Cursor Agent / Skill：自然语言 → CLI。
-- examples、LICENSE、基础 CI、贡献指南。
-- 调试友好：保留中间 JSON、Diff 产物。
+- [x] README 一句话定位与 30 分钟快速开始。
+- [x] Cursor Agent / Skill：自然语言 → CLI（`docs/AGENT.md` + `.cursor/skills`）。
+- [x] examples、LICENSE（MIT）、基础 CI、贡献指南。
+- [x] 调试友好：`.ui-restore/` 产物说明（`docs/DEBUG.md`）。
 
-**退出标准：** 新用户按 README 30 分钟内在自有 Vue 3 项目跑通一次 restore。
+**退出标准：** 新用户按 README 30 分钟内在自有 Vue 3 项目（或 `test-project`）跑通一次 restore。
+
+> 2026-08-04：开源门面与 CI / Agent 文档已齐；后续可持续打磨发布流程与示例图。
 
 ---
 
