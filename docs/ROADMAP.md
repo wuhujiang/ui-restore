@@ -109,7 +109,7 @@ Phase 7+ 框架扩展（React 等）与生态
 
 ## 8. Phase 5 — AutoFix
 
-- [x] Playwright 截图（DSL→HTML 预览，或可选 `--url` 实页）。
+- [x] Playwright 截图（实际 Vue 页面 URL）。
 - [x] Sharp Diff 与 score（像素相似度 + heatmap）。
 - [x] 迭代修正（优先改 DSL 再 Generator 覆盖 Vue）。
 - [x] `threshold` / `maxRounds` 可配置；provider：`mock` / `openai`。
@@ -118,7 +118,8 @@ Phase 7+ 框架扩展（React 等）与生态
 
 > 2026-08-04：`ui-restore autofix <pageId> --reference <img> --provider mock`  
 > 算法：mean absolute RGB → score∈[0,1]；mock 按参考图区域采样修正 `background`。  
-> 限制：几何大偏移需更强模型；默认截的是 DSL HTML 预览而非完整 Vite 样式（可用 `--url`）。
+> 限制：几何大偏移需更强模型；CLI AutoFix 必须传入（或在配置中提供）实际页面 URL，
+> 以确保 Diff 对比的是生成后的 Vue 页面。
 
 ---
 

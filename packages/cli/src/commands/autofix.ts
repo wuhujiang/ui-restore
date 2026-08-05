@@ -10,6 +10,7 @@ import { parseDocument } from '@ui-restore/parser'
 import { scanComponents } from '@ui-restore/scanner'
 import type { UiDocument } from '@ui-restore/shared'
 import { loadProjectConfig, resolveConfigPath } from '../config.js'
+import { resolveAutofixPageUrl } from './autofix-url.js'
 
 export interface AutofixCommandOptions {
   cwd?: string
@@ -31,11 +32,25 @@ export async function runAutofixCommand(
   const referenceCwd = options.referenceCwd ?? process.cwd()
   const configPath = resolveConfigPath(cwd)
   const config = await loadProjectConfig(cwd)
+  let pageUrl: string | null
+  try {
+    pageUrl = resolveAutofixPageUrl(options.url, config.entry?.devServer)
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error))
+    process.exitCode = 1
+    return
+  }
 
   if (!configPath) {
     console.warn('未找到 ui-restore.config.ts，使用默认配置')
   } else {
     console.log(`使用配置: ${configPath}`)
+  }
+
+  if (!pageUrl) {
+    console.error('AutoFix 需要已运行的目标页面 URL。请传入 --url <页面 URL>，或在 ui-restore.config.ts 的 entry.devServer 中配置。')
+    process.exitCode = 1
+    return
   }
 
   const dslPath = resolve(cwd, '.ui-restore/dsl', `${pageId}.json`)
@@ -94,6 +109,7 @@ export async function runAutofixCommand(
   console.log(`页面: ${pageId}`)
   console.log(`参考图: ${referencePath}`)
   console.log(`Provider: ${providerName}`)
+  console.log(`页面 URL: ${pageUrl}`)
   console.log(`阈值: ${formatScore(threshold)} / maxRounds=${maxRounds}`)
   console.log(`产物目录: ${workDir}`)
 
@@ -106,7 +122,7 @@ export async function runAutofixCommand(
     threshold,
     maxRounds,
     provider,
-    url: options.url ?? config.entry?.devServer,
+    url: pageUrl,
     onDocumentUpdated: async (doc: UiDocument) => {
       writeFileSync(dslPath, `${JSON.stringify(doc, null, 2)}\n`, 'utf8')
       await generateVuePage(doc, {

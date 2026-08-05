@@ -25,6 +25,7 @@
 - `docs/DEBUG.md`：`.ui-restore/` 产物说明
 - README「小白先看」：源码安装（未发 npm）、`--cwd` 接到自有项目、工具≠模型、`mock`/`openai`/兼容网关、常见疑问；`docs/AGENT.md` 对齐该说明
 - npm 发布准备：`packages/*` 补齐 `license` / `engines` / `publishConfig.access` / `repository`；新增 `docs/PUBLISH.md`；README / CONTRIBUTING / AGENT 交叉引用
+- 默认生成样式从 `scss` 改为 `css`，避免未安装 Sass 的 Vue 项目构建失败；CLI 配置测试覆盖该默认值
 
 ---
 

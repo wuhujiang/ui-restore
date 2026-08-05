@@ -44,6 +44,21 @@ const doc: UiDocument = {
         style: { background: '#1677FF', color: '#fff', borderRadius: 8 },
         children: [],
       },
+      {
+        id: 'n_image',
+        type: 'Image',
+        text: 'Logo',
+        box: { x: 24, y: 480, width: 48, height: 48 },
+        props: { src: '/logo.png' },
+        children: [],
+      },
+      {
+        id: 'n_input',
+        type: 'Input',
+        box: { x: 24, y: 544, width: 327, height: 48 },
+        props: { placeholder: '邮箱' },
+        children: [],
+      },
     ],
   },
   components: [],
@@ -63,6 +78,10 @@ const result = await generateVuePage(doc, {
 
 const code = readFileSync(result.filePath, 'utf8')
 if (!code.includes('import Button from') || !code.includes('<Button')) {
+  console.error(code)
+  process.exit(1)
+}
+if ((code.match(/src="\/logo\.png"/g) ?? []).length !== 1 || (code.match(/placeholder="邮箱"/g) ?? []).length !== 1) {
   console.error(code)
   process.exit(1)
 }

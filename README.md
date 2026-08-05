@@ -73,7 +73,7 @@ pnpm ui-restore restore --provider mock --cwd /path/to/your-vue-app /path/to/log
 
 - `--cwd` = **你的 Vue 项目根目录**（配置、组件扫描、生成的 `.vue` 都写在这里）。
 - 图片路径按**你敲命令时的当前目录**解析（一般在 ui-restore 仓库根）。
-- 先改生成的 `ui-restore.config.ts`：确认 `components` / `pages` / `lang`（`ts`|`js`）。
+- 先改生成的 `ui-restore.config.ts`：确认 `components` / `pages` / `lang`（`ts`|`js`）。样式默认是无需额外依赖的 `css`；仅在目标项目已安装 `sass` 时改为 `scss`。
 
 不必把 ui-restore 源码拷进你的业务仓库；CLI 和业务项目是分开的。
 
@@ -143,13 +143,21 @@ pnpm dev
 
 ### 3. AutoFix（可选）
 
+AutoFix 会截取你的**实际 Vue 页面**，因此先在目标项目启动开发服务器，并传入该页面的精确 URL（也可写入 `ui-restore.config.ts` 的 `entry.devServer`）。
+
 ```bash
+# 终端 1
+cd test-project
+pnpm dev
+
+# 终端 2（仓库根目录）
 pnpm --filter @ui-restore/autofix exec playwright install chromium
 
 pnpm ui-restore autofix home \
   --provider mock \
   --cwd test-project \
   --reference examples/home.png \
+  --url http://localhost:5173 \
   --threshold 0.9
 ```
 

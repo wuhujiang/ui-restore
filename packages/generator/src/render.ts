@@ -101,19 +101,13 @@ export function renderNode(node: UiNode, ctx: RenderContext): string {
   const attrs = propsToAttrs(node.props)
 
   if (tag === 'img') {
-    const src =
-      typeof node.props?.src === 'string' ? escapeHtml(node.props.src) : ''
     const alt =
       typeof node.text === 'string' ? escapeHtml(node.text) : node.id
-    return `${ctx.indent}<img class="ur-node" style="${style}" src="${src}" alt="${alt}" />`
+    return `${ctx.indent}<img class="ur-node" style="${style}"${attrs} alt="${alt}" />`
   }
 
   if (tag === 'input') {
-    const placeholder =
-      typeof node.props?.placeholder === 'string'
-        ? escapeHtml(node.props.placeholder)
-        : ''
-    return `${ctx.indent}<input class="ur-node" style="${style}"${attrs}${placeholder ? ` placeholder="${placeholder}"` : ''} />`
+    return `${ctx.indent}<input class="ur-node" style="${style}"${attrs} />`
   }
 
   const text = typeof node.text === 'string' ? escapeHtml(node.text) : ''

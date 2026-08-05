@@ -16,7 +16,7 @@
 | 恢复登录页 / restore xxx.png | `pnpm ui-restore restore --cwd <vue-project> <image>` |
 | 多图并抽公共组件 | `pnpm ui-restore restore --cwd <vue-project> a.png b.png` |
 | 扫描组件库 | `pnpm ui-restore scan --cwd <vue-project>` |
-| 自动修正 / 对比设计图 | `pnpm ui-restore autofix <pageId> --cwd <vue-project> --reference <image>` |
+| 自动修正 / 对比设计图 | `pnpm ui-restore autofix <pageId> --cwd <vue-project> --reference <image> --url <实际页面 URL>` |
 
 在 monorepo 根目录开发时，先 `pnpm build`，再用 `pnpm ui-restore ...`。
 
@@ -32,7 +32,8 @@
 
 ```bash
 pnpm ui-restore restore --provider mock --cwd test-project examples/home.png
-pnpm ui-restore autofix home --provider mock --cwd test-project --reference examples/home.png --threshold 0.9
+# 先在另一个终端启动：cd test-project && pnpm dev
+pnpm ui-restore autofix home --provider mock --cwd test-project --reference examples/home.png --url http://localhost:5173 --threshold 0.9
 ```
 
 ## 调试产物（保留，便于审查）

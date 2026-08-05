@@ -14,12 +14,13 @@ program
 
 program
   .command('init')
-  .description('Generate ui-restore.config.ts in the current project')
+  .description('Generate ui-restore.config.ts in the target project')
   .option('-f, --force', 'Overwrite existing config', false)
   .option('--lang <lang>', 'ts | js', 'ts')
-  .action(async (opts: { force?: boolean; lang?: string }) => {
+  .option('--cwd <dir>', 'Target project directory', process.cwd())
+  .action(async (opts: { force?: boolean; lang?: string; cwd?: string }) => {
     const lang = opts.lang === 'js' ? 'js' : 'ts'
-    await runInit({ force: Boolean(opts.force), lang })
+    await runInit({ force: Boolean(opts.force), lang, cwd: opts.cwd })
   })
 
 program

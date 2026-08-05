@@ -237,12 +237,12 @@ type RestoreBundle = {
 export default {
   framework: 'vue',          // 一期仅 vue
   lang: 'ts',                // 'ts' | 'js'
-  style: 'scss',             // 'scss' | 'css' | 'module-scss' | ...（实现期定枚举）
+  style: 'css',              // 默认无需额外依赖；使用 'scss' 前需在目标项目安装 sass
   components: 'src/components',
   pages: 'src/pages',
   sharedComponents: 'src/components/restored',
   entry: {
-    // 可选：autofix 预览用
+    // 可选：AutoFix 的实际页面 URL；可被 --url 覆盖
     // devServer: 'http://localhost:5173'
   },
   /**

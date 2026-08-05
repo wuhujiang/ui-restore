@@ -26,7 +26,7 @@ export function defaultConfig(): UiRestoreConfig {
   return {
     framework: 'vue',
     lang: 'ts',
-    style: 'scss',
+    style: 'css',
     components: 'src/components',
     pages: 'src/pages',
     sharedComponents: 'src/components/restored',

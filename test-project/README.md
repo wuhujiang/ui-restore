@@ -16,3 +16,9 @@ pnpm dev
 ```
 
 内置组件：`Button`、`AppInput`（restore 时应优先复用 `Button`）。
+
+AutoFix 会比对真实页面。启动 `pnpm dev` 后，从仓库根目录执行：
+
+```bash
+pnpm ui-restore autofix login --provider mock --cwd test-project --reference examples/login.png --url http://localhost:5173
+```

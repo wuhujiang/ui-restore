@@ -44,7 +44,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "node -e \"console.log('[@ui-restore/cli] no tests yet')\""
+    "test": "node --import tsx/esm src/config.test.ts && node --import tsx/esm src/init.test.ts && node --import tsx/esm src/commands/autofix.test.ts"
   },
   "dependencies": {
     "@ui-restore/autofix": "workspace:*",
@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.30",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
 }
